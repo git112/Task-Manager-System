@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    padding: 20px;
+    color: #333;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 30%;
+  }
+  
+  input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  input:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.4);
+  }
+  
+  button {
+    padding: 8px;
+    font-size: 14px;
+    background: linear-gradient(135deg, #6c63ff, #9a77ff);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+  }
+  
+  button:hover {
+    transform: scale(1.03);
+    background: linear-gradient(135deg, #564ae0, #8058ff);
+  }
+  
+  .task-list {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width:30%;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+  }
+  
+  li:hover {
+    background-color: #f9f9f9;
+  }
+  
+  li:last-child {
+    border-bottom: none;
+  }
+  
+  .task-complete {
+    text-decoration: line-through;
+    color: #999;
+  }
+  
+  .delete-button {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .delete-button:hover {
+    background-color: #ff4949;
+    transform: scale(1.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .task-form {
+      gap: 8px;
+    }
+  
+    input {
+      font-size: 13px;
+      padding: 6px;
+    }
+  
+    button {
+      font-size: 13px;
+      padding: 6px;
+    }
+  
+    .task-list {
+      padding: 10px;
+    }
+  
+    li {
+      font-size: 13px;
+      padding: 8px;
+    }
+  
+    .delete-button {
+      font-size: 11px;
+      padding: 3px 6px;
+    }
+  }
+  

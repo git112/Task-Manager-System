@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Reminder System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Task Reminder System</h1>
+  <br>
+
+  <div class="task-form">
+    <input type="text" id="taskTitle" placeholder="Task Title" />
+    <input type="number" id="taskDueTime" placeholder="Due Time (minutes)" />
+    <input type="number" id="taskPriority" placeholder="Priority (1-High, 2-Medium, 3-Low)" />
+    <button id="addTaskButton">Add Task</button>
+  </div>
+
+
+  <div class="task-list">
+    <h5>Task List</h5>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script type="module">
+   import { addTask, sortTasksByPriority, displayTasksDueWithin, sendReminders, tasks } from './script.js';
+
+function displayTaskList() {
+  const taskListElement = document.getElementById('taskList');
+  taskListElement.innerHTML = '';
+
+  tasks.forEach((task) => {
+    const li = document.createElement('li');
+    li.textContent = `${task.title} - Due in ${task.dueTime} minutes - Priority: ${task.priority}`;
+    taskListElement.appendChild(li);
+  });
+}
+
+document.getElementById('addTaskButton').addEventListener('click', () => {
+  const title = document.getElementById('taskTitle').value;
+  const dueTime = parseInt(document.getElementById('taskDueTime').value);
+  const priority = parseInt(document.getElementById('taskPriority').value);
+
+  addTask(title, dueTime, priority);
+  sortTasksByPriority();
+  displayTaskList();
+  sendReminders();
+
+  document.getElementById('taskTitle').value = '';
+  document.getElementById('taskDueTime').value = '';
+  document.getElementById('taskPriority').value = '';
+});
+
+  </script>
+</body>
+</html>
